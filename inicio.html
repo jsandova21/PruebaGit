@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+	<HEAD>
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+		<TITLE>::::Sistema Control de Operaciones::::</TITLE>
+		<TMPL_IF NAME="ROL1">
+		<TMPL_INCLUDE name="estilo.css">
+		</TMPL_IF>
+		<TMPL_IF NAME="ROL3">
+		<TMPL_INCLUDE name="estilo_mov.css">
+		</TMPL_IF>
+	</HEAD>
+	
+<BODY background="/img/TallerConfeccion2.png">
+<FORM name="solicitud" method="POST" action="maquilando.cgi">
+	<TABLE width="750px" border="0" align="center">
+		<TR>
+			<TD width="100%" valign="top"><TMPL_INCLUDE name="cabecera.html"></TD>
+		</TR>
+		<TR>
+			<TD width="100%" valign="top"><BR></TD>
+		</TR>
+		<TR>			
+			<TD width="100%" valign="top">
+				<TABLE width="100%" border="0" align="center" style="margin-left:1%;margin-right:0%">
+					<TR>
+						<TD align="center" width="100%" colspan="2">
+							<BR>
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="100%" colspan="2">
+							<SPAN class="error">Los Campos Marcados con (*) son Obligatorios</SPAN>
+						</TD>
+					</TR>
+					<TMPL_IF name="ACCESO">	
+					<TR>
+						<TD align="center" class="subtitulo" colspan="2">Ingrese Usuario y Clave</TD>
+					</TR>
+					<TR>
+						<TD width="100%" class="error" align="center" colspan="2">
+							<TMPL_VAR name="var_men">
+						</TD>
+					</TR>					
+					<TR>
+						<TD align="center" width="100%" colspan="2">
+							<BR>
+						</TD>
+					</TR>	
+					<TR>
+						<TD width="40%" align="right" class="normal"><SPAN class="asterisco">*</SPAN>Usuario:</TD><!--Input Usuario-->
+						<TD width="60%" class="normal" align="left">
+							<INPUT class="normal" name="usuario" type="text" size="15" maxlength="15" style="text-align:center" autofocus value="<TMPL_VAR NAME="var_usuario">">
+						</TD>
+					</TR>
+					<TMPL_IF NAME="PIN">
+					<TR>
+						<TD align="right" class="normal"><SPAN class="asterisco">*</SPAN>Clave (4 digitos):</TD><!--Input Password-->
+						<TD class="normal" align="left">
+							<INPUT class="normal" name="clave" type="password" size="15" maxlength="15" style="text-align:center">
+						</TD>
+					</TR>
+					</TMPL_IF>
+					<TMPL_IF NAME="CREAR_USR">
+					<TR>
+						<TD align="right" class="normal"><SPAN class="asterisco">*</SPAN>Repita la Clave (4 digitos):</TD><!--Input Password-->
+						<TD class="normal" align="left">
+							<INPUT class="normal" name="clave" type="password" size="15" maxlength="15" style="text-align:center">
+						</TD>
+					</TR>
+					</TMPL_IF>
+					<TMPL_IF NAME="RECUP_USR">
+					<TR>
+						<TD align="right" class="normal"><SPAN class="asterisco">*</SPAN>Repita la Clave (4 digitos):</TD><!--Input Password-->
+						<TD class="normal" align="left">
+							<INPUT class="normal" name="clave" type="password" size="15" maxlength="15" style="text-align:center">
+						</TD>
+					</TR>
+					</TMPL_IF>
+					<TR>
+						<TD align="center" width="100%" colspan="2"><BR>
+							<INPUT type="hidden" name="rm" value="mode1">
+							<TMPL_IF NAME="INGRESAR">
+							<INPUT class="botones" type="submit" name="boton" value="Ingresar" style="width:15%">	 
+							</TMPL_IF>
+							<TMPL_IF NAME="CREAR_USR">
+							<INPUT class="botones" type="submit" name="boton" value="Acceder" style="width:15%">
+							<INPUT class="botones" type="submit" name="boton" value="Recuperar" style="width:15%">	 
+							</TMPL_IF>
+						</TD>
+					</TR>
+					</TMPL_IF>
+					<TMPL_IF name="OPERACIONES">	
+					<TR>
+						<TD align="center" class="subtitulo" colspan="2">Seleccione una Opci&oacute;n</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="100%" colspan="2"><BR>
+							<SELECT class="combo" name="oper">
+								<TMPL_LOOP name="loop_oper">
+										<TMPL_VAR NAME="var_oper">
+								</TMPL_LOOP>
+							</SELECT>
+						</TD>
+						</TR>
+					<TR>
+						<TD align="center" width="100%" colspan="2"><BR>
+							<INPUT type="hidden" name="rm" value="mode1">
+							<INPUT class="botones" type="submit" name="boton" value="Siguiente" style="width:15%">	 
+							<INPUT class="botones" type="submit" name="boton" value="Salir" style="width:15%">	 
+						</TD>
+					</TR>
+					</TMPL_IF>
+				</TABLE>
+				<TABLE width="100%" border="0" align="center" style="margin-left:1%;margin-right:0%">
+					<TR>
+						<TD align="center">
+							</BR></BR></BR></BR></BR>
+						</TD>
+						<TD align="center">
+							<!-- <INPUT type="hidden" name="rm" value="mode1" name="boton" value="Siguiente"> -->
+							<!-- <a style="text-decoration:none;" href="http://localhost/cgi-bin/maquilando.cgi?nombre=&rm=mode1"><IMG src="/img/MaquilandoDisenos2.jpg" width="10%" height="10%" border="0"></a> -->
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>
